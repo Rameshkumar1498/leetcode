@@ -1,0 +1,23 @@
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+        int ar[]=new int[100000];
+        int t=-1;
+        for(int i=0;i<nums.length;i++)
+        {
+                t=nums[i];
+                ar[t]+=1;
+            
+        }
+        int max=-1;int ans=-1;
+        for(int i=0;i<ar.length;i++)
+        {
+            if(ar[i]>max && i%2==0 && ar[i]!=0)
+            {
+                max=ar[i];
+                ans=i;
+            }
+        }
+
+        return ans;
+    }
+}
