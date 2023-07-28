@@ -1,0 +1,6 @@
+:from
+select t.transaction_id,t.type,amount,t.transfertype,t.transferamount,t.from_accountid,a.id,a. balance,a.aadharnumber,a.status,a.approvestatus,a.activated_date,a.deactive_date,a.customer_id,c.roleid,p.role_name,c.name,c.dob,c.address,c.blood_group,c.email, c.status,a.branchid,b.branchname,b.branchaddress,b.ifsccode, a.scheme_id,s.scheme_name,s.maxlimitperday,s.minimum_amount,s.agetype from transaction join account a on from_accountid=a.accountno join customer c on a.customer_id=c.customer_id join position p on c.role_id=p.role_id join branch b on b.id=a.branchid join a.scheme_id=scheme_id;
+:to
+select t.transaction_id,t.type,amount,t.transfertype,t.transferamount,t.to_accountid,a.id,a. balance,a.aadharnumber,a.status,a.approvestatus,a.activated_date,a.deactive_date,a.customer_id,c.roleid,p.role_name,c.name,c.dob,c.address,c.blood_group,c.email, c.status,a.branchid,b.branchname,b.branchaddress,b.ifsccode, a.scheme_id,s.scheme_name,s.maxlimitperday,s.minimum_amount,s.agetype from transaction t join account a on to_accountid=a.accountno join customer c on a.customer_id=c.customer_id join position p on c.role_id=p.role_id join branch b on b.id=a.branchid join a.scheme_id=scheme_id;
+:staffs
+select c.customer_id,p.role_name,c.name, c.dob, c.address, c.blood_group, c.email,c.branch_id,c.status from customer c join position p on p.role_id=c.role_id  
